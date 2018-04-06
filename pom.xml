@@ -1,0 +1,71 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>de.greinerinformatik.tomcatLetsencryptDaemon</groupId>
+    <artifactId>tomcat-letsencrypt-daemon</artifactId>
+    <version>0.0.1</version>
+
+    <name>Let's encrypt daemon for Tomcat</name>
+    <description>Certbot implemented in java</description>
+    <url>https://www.greiner-informatik.de</url>
+    
+	<developers>
+		<developer>
+			<id>jm009</id>
+			<name>Jan Michael Greiner</name>
+		</developer>
+	</developers>
+
+	<scm>
+		<url>https://github.com/jm009/tomcat-letsencrypt-daemon/</url>
+		<connection>scm:git:git@github.com:jm009/tomcat-letsencrypt-daemon.git</connection>
+		<developerConnection>scm:git:git@github.com:jm009/tomcat-letsencrypt-daemon.git</developerConnection>
+	</scm>
+
+	<issueManagement>
+		<system>GitHub</system>
+		<url>https://github.com/jm009/tomcat-letsencrypt-daemon/issues</url>
+	</issueManagement>
+
+    <!-- 
+		"Java 8u101 or higher is required for connecting to the Let’s Encrypt servers." !!!
+		    
+    	https://shredzone.org/maven/acme4j/ca/letsencrypt.html
+     -->
+
+    <properties>
+        <javax.mail.version>1.6.1</javax.mail.version>
+        <acme4j.version>2.0</acme4j.version>
+        <servlet-api-version>3.1.0</servlet-api-version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>7</maven.compiler.source>
+        <maven.compiler.target>7</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+		<dependency>
+		    <groupId>com.sun.mail</groupId>
+		    <artifactId>javax.mail</artifactId>
+		    <version>${javax.mail.version}</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.shredzone.acme4j</groupId>
+		    <artifactId>acme4j-client</artifactId>
+		    <version>${acme4j.version}</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.shredzone.acme4j</groupId>
+		    <artifactId>acme4j-utils</artifactId>
+		    <version>${acme4j.version}</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>javax.servlet</groupId>
+		    <artifactId>javax.servlet-api</artifactId>
+		    <version>${servlet-api-version}</version>
+		    <!--  scope>provided</scope -->
+		</dependency>
+	</dependencies>
+
+</project>
