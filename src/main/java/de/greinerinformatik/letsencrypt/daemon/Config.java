@@ -227,7 +227,7 @@ public class Config {
 		if (domainName.matches("^[^\\.]*\\.[^\\.]*$")) { // only one dot (.)
 			throw new IllegalArgumentException("'getKeyStoreFile(String domainName)' may not be called with a domain name with only one dot (.). Prepend 'www.'. The certificiate will contain a non-'www.' version too.");
 		}
-		return new File(certsDirectory.getAbsolutePath() + File.separator + domainName + File.separator + "keystore.jks");
+		return new File(certsDirectory.getAbsolutePath() + File.separator + domainName + File.separator + "keystore.pkcs12");
 
 	}
 	

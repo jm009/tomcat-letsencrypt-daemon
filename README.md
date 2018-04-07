@@ -8,7 +8,7 @@ Handle regular updates for certificates from Let's encrypt for tomcat (must be r
 
 Developed with a handfull of domains in mind (should work for a lot of domains).
 
-Parts of code taken from [https://github.com/shred/acme4j/tree/master/acme4j-example]([https://github.com/shred/acme4j/tree/master/acme4j-example])
+Parts of code taken from [https://github.com/shred/acme4j/tree/master/acme4j-example]([https://github.com/shred/acme4j/tree/master/acme4j-example]). 
 
 
 How it works

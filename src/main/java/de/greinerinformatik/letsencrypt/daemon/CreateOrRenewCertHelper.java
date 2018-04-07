@@ -92,7 +92,8 @@ public class CreateOrRenewCertHelper {
 						if (challenge.getStatus() == Status.INVALID) {
 							File challengeTokenFile = challengeTokenFile(config.getLetsEncryptHttpChallengeTokensDir(), challenge);
 							challengeTokenFile.delete();
-							throw new AcmeException("Challenge failed... Giving up.");
+							throw new AcmeException("Challenge failed... Giving up. Reason: "
+										+ challenge.getError().getTitle() + " - " + challenge.getError().getDetail());
 						}
 						try {
 							Thread.sleep(3000L);
@@ -171,12 +172,11 @@ public class CreateOrRenewCertHelper {
 		if (config.isCreateKeyStore()) {
 			try {
 				config.getKeyStoreFile(domainName).delete();
-				KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
+				KeyStore keyStore = KeyStore.getInstance("PKCS12");
 				keyStore.load(null, config.getKeyStorePassword(domainName).toCharArray());
-				X509Certificate[] certificates = new X509Certificate[chain.size() + 1];
-				certificates[0] = cert;
+				X509Certificate[] certificates = new X509Certificate[chain.size()];
 				for (int certChainCounter = 0; certChainCounter < chain.size(); certChainCounter++) {
-					certificates[certChainCounter + 1] = chain.get(certChainCounter);
+					certificates[certChainCounter] = chain.get(certChainCounter);
 				}
 				keyStore.setKeyEntry(domainName, domainKeyPair.getPrivate(),
 							config.getKeyStorePassword(domainName).toCharArray(), certificates);
