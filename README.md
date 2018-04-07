@@ -70,6 +70,10 @@ To allow Let's encrypt to verify, that you own the domain, you have to setup the
 Trailer
 -----
 
-This is far from beeing finished, but works for me.
+This project is not finished, but works for me.
+What should be done
 
-Feedback, pull requests, filing bug reports are welcome.
+* Should not be started as a thread by a servlet, but by a standalone program, as cronjob, or at system startup (cronjob `@reboot`)
+* Logging instead of System.out.println 
+
+Feedback, pull requests, bug reports are welcome.

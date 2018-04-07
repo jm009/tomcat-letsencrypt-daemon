@@ -62,7 +62,7 @@ public class Config {
 
 	private void readCerts() throws IOException {
 		for (String domainName : domainNames) {
-			File f = getDomainCrtFile(domainName);
+			File f = getDomainCrtAndChainFile(domainName);
 			if (f.exists()) {
 				X509Certificate x509;
 				try {
